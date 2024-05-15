@@ -2,11 +2,19 @@
 require_once('../db_connect.php');
 class Livre
 {
+    private $conn;
+
+    public function __construct()
+    {
+        $dataBase = new Database();
+        $this->conn = $dataBase->pdo;
+    }
+
     public function getAllBooks()
     {
-        global $conn;
+
         $sql = "SELECT * FROM livre";
-        $requette = $conn->prepare($sql);
+        $requette = $this->conn->prepare($sql);
         $requette->execute();
 
         //retrieve all the book

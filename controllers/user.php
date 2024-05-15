@@ -7,8 +7,8 @@ class User
 
     public function __construct()
     {
-        $datebase = new Database();
-        $this->conn = $datebase->pdo;
+        $dateBase = new Database();
+        $this->conn = $dateBase->pdo;
     }
 
     public function getUserById($user_id)

@@ -22,4 +22,10 @@ class Livre
         return $books;
     }
 
+    public function getBookById($id)
+    {
+        
+
+    }
+
 }

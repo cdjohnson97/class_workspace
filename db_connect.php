@@ -1,15 +1,32 @@
 <?php
-const DB_HOST = 'localhost';
-const DB_USER = 'root';
-const DB_PASSWORD = '';
-const DB_NAME = 'bibliotheque';
+class Database {
+    private $host = "localhost";
+    private $db = "bibliotheque";
+    private $user = "root";
+    private $password = "";
+    private $charset = "utf8mb4";
+    public $pdo;
 
-try {
-    // Create a PDO connection
-    $conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Set error reporting mode
-} catch(PDOException $e) {
-    die("Connection failed: " . $e->getMessage());
+
+    public function __construct()
+    {
+        $dsn = "mysql:host=$this->host;dbname=$this->db;charset=$this->charset";
+        $option = [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            PDO::ATTR_EMULATE_PREPARES => false
+        ];
+
+        //connexion avec la BD
+        try {
+            $this->pdo = new PDO($dsn, $this->user, $this->password, $option);
+        } catch (PDOException $e) {
+            echo "Cannot connect to the database";
+            throw new PDOException($e->getMessage(), (int)$e->getCode());
+        }
+
+
+    }
 }
 ?>
 

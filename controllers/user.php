@@ -3,14 +3,19 @@ require_once('../db_connect.php');
 
 class User
 {
+    private $conn;
 
+    public function __construct()
+    {
+        $datebase = new Database();
+        $this->conn = $datebase->pdo;
+    }
 
     public function getUserById($user_id)
     {
-        global $conn; // Assuming $conn is accessible in this scope
 
         $sql = "SELECT * FROM utilisateur WHERE id_utilisateur = :user_id";
-        $stmt = $conn->prepare($sql);
+        $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
         $stmt->execute();
 
@@ -22,10 +27,9 @@ class User
 
     function getAllUsers()
     {
-        global $conn;
 
         $sql = "SELECT * FROM utilisateur";
-        $statement = $conn->prepare($sql);
+        $statement = $this->conn->prepare($sql);
         $statement->execute();
 
         //retrieve all users from the DB

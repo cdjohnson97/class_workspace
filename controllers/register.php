@@ -14,8 +14,7 @@ if (isset($_POST["submit"])) {
 
     // Validation (check for empty fields, password match, etc.)
     $errors = [];
-    if (empty($nom)) {
-        $errors[] = "Vous devez inserer un nom valide.";
+    
     }
     if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
         $errors[] = "Votre adresse mail n'est pas valide, verifiez-le.";

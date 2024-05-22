@@ -10,6 +10,7 @@ h1 {
     font-size: 1.8rem;
     margin-bottom: 20px;
     text-align: center;
+    color: red;
 }
 
 /* Book container section */
@@ -32,6 +33,7 @@ h1 {
 
 .book-card img {
     width: 100%;
+    border-bottom: 1px solid black;
     height: 200px; /* Adjust image height as needed */
     object-fit: cover; /* Scales image to fill container */
 }

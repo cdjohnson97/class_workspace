@@ -10,6 +10,7 @@ body {
 h1 {
     font-size: 1.5rem;
     margin-bottom: 15px;
+    color: red;
     text-align: center; /* This line centers the title horizontally */
 }
 

@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Library Catalog</title>
-    <link rel="stylesheet" href="livre.css"> </head>
+    <link rel="stylesheet" href="livre.css">
+</head>
 <body>
 <h1>Nos livres</h1>
 
-<section class="books-container">
+<section class="books-container ">
     <?php
     require_once('../db_connect.php');
     require_once('../controllers/livres.php');
